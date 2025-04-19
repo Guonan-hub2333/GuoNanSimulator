@@ -1,5 +1,7 @@
 # GuoNanSimulator | 国男大冒险
 
+[首页](https://guonan-hub2333.github.io/)
+
 ## 前言
 
 本项目基于[Fengzi2333](https://github.com/Fengzi2333/GuoNanSimulator)的[国男大冒险](https://fengzi2333.github.io/GuoNanSimulator/index.html)修改
