@@ -1,0 +1,350 @@
+<html lang="zh">
+
+<head>
+	<meta charset="utf-8">
+	<link crossorigin="" rel="shortcut icon" type="image/x-icon" href="./img/logo-cf.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" property="og:description" content="请关注公众号：嘲讽">
+	<meta name="keywords" content="国男大冒险|国男大冒险经典版|国男模拟器|国男的一生|小游戏|成人小游戏|国男小游戏">
+	<title>国男大冒险</title>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DHQJEB2VL9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DHQJEB2VL9');
+</script>
+<body>
+	<div class="div_title">
+		<div style="position: absolute; right: 0; display: flex; height: 65px; gap: 10px; padding-right: 20px;">
+			<div onclick="location.href='../index.html'" class="title_button">更多游戏</div>
+			<div onclick="share()" class="title_button">分享</div>
+		</div>
+	</div>
+	<div id="root">
+		<div class="div_mainlay">
+			<div class="views">
+				<div class="text-a">
+					<div id="title">加载中···</div>
+				</div>
+				<div class="text-b">
+					<div id="content"></div>
+				</div>
+				<div id="linkDiv" class="text-b" style="display:none;">
+					<div>关键词：<a id="linkLabel" style="color:#0000ff;cursor:pointer;" target="_blank"></a></div>
+				</div>
+				<div id="btnList">
+				</div>
+				<!-- 【页脚】 -->
+				<!--div class="footer">
+					<div class="footer-top">
+						<a href="/sm/wx-ds.html">打赏</a>
+						<a href="/sm/wx-jq.html">进群</a>
+						<a href="/sm/wx-rh.html">入伙</a>
+					</div>
+					<div class="footer-bottom">
+						<a href="https://github.com/fengzi2333/GuoNanSimulator">Copyright © fengzi2333</a>
+					</div>
+				</div-->
+			</div>
+		</div>
+	</div>
+
+
+</body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<!-- 【选择】 -->
+<script>
+	function getItem(id, json) {
+		var tmp = null;
+		for (var i = 0; i < json.length; i++) {
+			if (json[i].id == id) {
+				tmp = json[i];
+				break;
+			}
+		}
+		return tmp;
+	}
+	var allJson = [];
+
+	$(document).ready(function (e) {
+		allJson = [
+			{
+                id:1,
+                content:'2018年，你出生啦！<br>三年后，你在路边看到了一个大妈<br>大妈说：“小朋友，跟阿姨过来，阿姨这里有糖！”你去？还是不去？',
+                btnList: [{ txt: '去', lastId: 2 },{txt:'不去',lastId:3}]
+            } ,   
+            {
+                id:2,
+                content:'你被大妈推下了楼，享年3岁',
+                link:[
+                    {
+                        str:'11·28合肥男童坠楼事故',
+                        src:'https://cn.bing.com/search?q=11%C2%B728%E5%90%88%E8%82%A5%E7%94%B7%E7%AB%A5%E5%9D%A0%E6%A5%BC%E4%BA%8B%E6%95%85',
+                    },
+                    {
+                        str:'4·1重庆女子高楼扔小孩事件',
+                        src:'https://baike.baidu.com/item/4%C2%B71%E9%87%8D%E5%BA%86%E5%A5%B3%E5%AD%90%E9%AB%98%E6%A5%BC%E6%89%94%E5%B0%8F%E5%AD%A9%E4%BA%8B%E4%BB%B6?fromModule=lemma_search-box',
+                    }
+                ],
+                btnList:[{txt:"如果能重来",lastId:1}]
+            } ,
+            {
+                id:3,
+                content:'你妈妈给你报了奥数辅导班（没错，你现在还是三岁）<br>但是有一天你不舒服，你选择',
+                btnList:[{txt:'休息一下吧',lastId:4},{txt:'继续',lastId:5}]
+            },
+            {
+                id:4,
+                content:'你妈妈得知你少上了一节奥数，把你的下体踹断了',
+                link:[
+                    {
+                        str:'3岁男孩少上补习班，被母亲一脚踹爆下体',
+                        src:'http://www.saibeinews.com/xw/2023/0227/18459.html',
+                    }
+                ],
+                btnList:[{txt:'如果能重来',lastId:3}]
+            },
+            {
+                id:5,
+                content:'你平平安安的过去了一年，你现在四岁。<br>一天，一个十六岁的小姐姐说自己过生日，邀请你去,你去还是不去？',
+                btnList:[{txt:'去',lastId:6},{txt:'不去',lastId:7}]
+            },
+            {
+                id:6,
+                content:'你被杀害，享年4岁',
+                link:[
+                    {
+                        str:'广东揭阳16岁女生杀害4岁男童',
+                        src:'https://www.baidu.com/s?ie=UTF-8&wd=%E5%B9%BF%E4%B8%9C%E6%8F%AD%E9%98%B316%E5%B2%81%E5%A5%B3%E7%94%9F%E6%9D%80%E5%AE%B34%E5%B2%81%E7%94%B7%E7%AB%A5',
+                    }
+                ],
+                btnList:[{txt:'如果能重来',lastId:5}]
+            },
+            {
+                id:7,
+                content:'过了几个月，隔壁一个7岁小学女生要你过去陪她玩，你去还是不去？',
+                btnList:[
+                    {
+                        txt:'去',
+                        lastId:8,
+                    },{
+                        txt:'不去',
+                        lastid:9,
+                    }
+                ]
+            },
+            {
+                id:8,
+                content:'你被女孩故意推下井里面，你的家长被迫和解，游戏结束，享年4岁',
+                link:[
+                    {
+                    str:'警方通报7岁女孩将4岁男孩扔井中',
+                    src:'https://www.bilibili.com/video/BV1iY4y1D7tQ',
+                    }
+                ],
+                btnList:[{txt:'如果能重来',lastId:7}]
+            },
+            {
+                id:100,
+                content:'你被五十多岁的女老师猥亵，无论是在学校还是在哪里都没办法抬起头来',
+                link:[
+                    {
+                        str:'南京12岁男孩遭补习班5旬老师猥亵 被亲嘴摸下体',
+                        src:'https://news.jstv.com/a/20171117/1510922648865.shtml'
+                    }
+                ]
+            },
+			{
+				id:9,
+				content:'恭喜通关本游戏！',
+			}
+		];
+		$("#title").html("儿童大冒险");
+		loadItem(1);
+	});
+
+	function loadItem(id) {
+		var info = getItem(id, allJson);
+		if (info != null) {
+			$('#content').html(info.content);
+			if (info.link) {
+				$('#linkDiv').html("");
+				for (var i = 0; i < info.link.length; i++) {
+					$('#linkDiv').append('<div>关键词：<a onclick="window.open(\'' + info.link[i].src + '\')" style="color:#0000ff;cursor:pointer;" target="_blank">' + info.link[i].str + '</a></div>');
+				}
+				$('#linkDiv').css('display', 'block');
+			} else if (info.linkSrc) {
+				$('#linkDiv').html("");
+				/*$('#linkLabel').html(info.linkStr);
+				$('#linkLabel').attr('onclick','window.open("'+info.linkSrc+'")');*/
+				$('#linkDiv').append('<div>关键词：<a onclick="window.open(\'' + info.linkSrc + '\')" style="color:#0000ff;cursor:pointer;" target="_blank">' + info.linkStr + '</a></div>');
+				$('#linkDiv').css('display', 'block');
+			} else {
+				$('#linkDiv').css('display', 'none');
+			}
+			if (info.btnList) {
+				$('#btnList').html('');
+				for (var i = 0; i < info.btnList.length; i++) {
+					$('#btnList').append('<div class=" ' + (info.btnList[i].btnClass ? info.btnList[i].btnClass : 'button') + '" onclick="loadItem(' + info.btnList[i].lastId + ')">' + info.btnList[i].txt + '</div>');
+				}
+			}
+		}
+	}
+	function share() {
+		//可以根据需要实现分享功能
+		//复制下面文案到粘贴板
+		var shareText = '恐怖游戏官网：poet000.github.io \n\n请复制链接到浏览器打开，无法访问请尝试切换网络，或让朋友在官网下载本地版分享给你。';
+		navigator.clipboard.writeText(shareText);
+		alert('已复制以下内容到粘贴板: \n \n ' + shareText);
+	}
+</script>
+<style data-emotion="css" data-s="">
+	:root {
+		--swiper-theme-color: #007aff
+	}
+
+	body {
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif
+	}
+
+	.div_title {
+		width: 100vw;
+		height: 10vh;
+		position: fixed;
+		top: 0;
+		background: transparent;
+		pointer-events: none;
+		z-index: 1000;
+	}
+
+	.div_title > div {
+		pointer-events: auto;  /* 恢复按钮的点击事件 */
+	}
+
+	.div_mainlay {
+		margin-top: 10px;
+		width: 100vw;
+		height: 100vh;
+		background-image: linear-gradient(rgba(255, 255, 255, 0.09) 74%, rgba(0, 156, 238, 0.3));
+		position: relative;
+		overflow: auto;
+		display: flex;           /* 添加flex布局 */
+		justify-content: center; /* 水平居中 */
+		align-items: center;     /* 垂直居中 */
+	}
+
+	.title_button {
+		color: rgb(255, 255, 255);
+		background: rgb(15, 136, 235);
+		border-radius: 999999px;
+		font-size: 18px;
+		font-weight: 700;
+		width: 100px;
+		height: 42px;
+		border: none;
+		cursor: pointer;
+		margin-top: 5px;
+		/* margin-left: -120px; */
+		display: flex;
+		-webkit-box-align: center;
+		align-items: center;
+		-webkit-box-pack: center;
+		justify-content: center;
+		z-index: 1;
+	}
+
+	/* 页脚 */
+	.footer {
+		bottom: 0;
+		width: 100%;
+		margin-top: 70px;
+		background-color: rgba(255, 255, 255, 0);
+		/* 全透明背景 */
+		border-top: 1px solid rgba(255, 255, 255, 0.3);
+		/* 半透明边框 */
+		/* padding: 10px 0; */
+		text-align: center;
+		z-index: 2;
+	}
+
+	/* 页脚 */
+	.footer a {
+		margin: 5px;
+		text-decoration: none;
+		color: #8B9BAA;
+		font-weight: bold;
+	}
+
+	.text-a {
+		font-size: 1.8rem;
+		font-weight: 500;
+		margin-top: 18px;
+		margin-bottom: 19px;
+		text-align: center;
+	}
+
+	.text-b {
+		font-size: 1.1rem;
+		font-weight: 360;
+		margin-bottom: 19px;
+		text-align: left;
+	}
+
+	.views {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin: 40px;
+		max-height: 90vh;        /* 防止内容过长 */
+		overflow-y: auto;        /* 内容过长时可滚动 */
+	}
+
+	.button {
+		color: rgb(255, 255, 255);
+		background: rgb(15, 136, 235);
+		border-radius: 999999px;
+		font-size: 18px;
+		font-weight: 700;
+		width: 240px;
+		height: 42px;
+		border: none;
+		cursor: pointer;
+		margin-left: -120px;
+		display: flex;
+		-webkit-box-align: center;
+		align-items: center;
+		-webkit-box-pack: center;
+		justify-content: center;
+		z-index: 1;
+		margin: 10px 0;
+	}
+
+	.successButton {
+		color: rgb(255, 255, 255);
+		background: rgb(197, 169, 110);
+		border-radius: 999999px;
+		font-size: 18px;
+		font-weight: 700;
+		width: 240px;
+		height: 42px;
+		border: none;
+		cursor: pointer;
+		margin-left: -120px;
+		display: flex;
+		-webkit-box-align: center;
+		align-items: center;
+		-webkit-box-pack: center;
+		justify-content: center;
+		z-index: 1;
+		margin: 10px 0;
+	}
+</style>
+
+</html>
