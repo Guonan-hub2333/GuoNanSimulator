@@ -1,4 +1,4 @@
-# GuoNanSimulator
+# GuoNanSimulator | 国男大冒险
 
 ## 前言
 
